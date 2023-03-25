@@ -42,3 +42,5 @@ bot.on("message", async (message) => {
 
   bot.sendMessage(chatId, validUrlsMessages);
 });
+
+console.log("Server is running...");
