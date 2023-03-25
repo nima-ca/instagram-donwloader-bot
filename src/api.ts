@@ -1,10 +1,12 @@
+import * as dotenv from "dotenv";
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 
-// Create Axios Instance
-const createAxiosInstance = (): AxiosInstance =>
-  axios.create({
-    baseURL: "https://api.publicapis.org/",
-  });
+dotenv.config();
+
+// Axios Instance
+const axiosInstance = axios.create({
+  baseURL: process.env.BASE_URL,
+});
 
 // Handle API
 const api = (axios: AxiosInstance) => ({
@@ -26,4 +28,4 @@ const api = (axios: AxiosInstance) => ({
   defaults: axios.defaults,
 });
 
-export default api(createAxiosInstance());
+export default api(axiosInstance);
